@@ -1,0 +1,58 @@
+name: Setup Bug
+description: Report a problem installing or configuring Agent Telegram Notifier.
+title: "[Setup]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a setup issue. Do not paste Telegram bot tokens, chat IDs, or private message contents.
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Python version, and Codex version if known.
+      placeholder: "macOS 15, Python 3.12, Codex ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: step
+    attributes:
+      label: Where did it fail?
+      options:
+        - Skill installation
+        - BotFather token validation
+        - Chat detection with getUpdates
+        - Test notification delivery
+        - Environment variable loading
+        - Recurring automation notification
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead? Redact any secrets before submitting.
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Commands run
+      description: Paste the commands you ran, with tokens and chat IDs removed.
+      render: shell
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Paste only the relevant error output. Redact tokens, chat IDs, and private content.
+      render: text

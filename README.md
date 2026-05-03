@@ -1,5 +1,8 @@
 # Agent Telegram Notifier
 
+[![Test](https://github.com/marcomix54/agent-telegram-notifier/actions/workflows/test.yml/badge.svg)](https://github.com/marcomix54/agent-telegram-notifier/actions/workflows/test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Agent Telegram Notifier is a Codex skill for sending one concise plain-text Telegram notification after an agent task, automation, monitoring run, or long-running job finishes.
 
 It is intentionally small: it sends final status summaries through a user-provided Telegram bot. It is not a Telegram chatbot framework, incoming message handler, attachment sender, rich formatting layer, or multi-recipient router.
@@ -19,7 +22,7 @@ Install from GitHub with the Codex skill installer:
 
 ```bash
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
-  --repo <owner>/agent-telegram-notifier \
+  --repo marcomix54/agent-telegram-notifier \
   --path . \
   --name agent-telegram-notifier
 ```
@@ -35,7 +38,13 @@ cp -R SKILL.md agents scripts ~/.codex/skills/agent-telegram-notifier/
 
 ## Setup
 
-Create a Telegram bot with `@BotFather`, then run the setup wizard:
+Create a Telegram bot with `@BotFather`, then run the setup wizard from the installed skill:
+
+```bash
+python3 ~/.codex/skills/agent-telegram-notifier/scripts/setup_telegram.py
+```
+
+If you are working from a local checkout of this repository, you can run the same wizard from the checkout:
 
 ```bash
 python3 scripts/setup_telegram.py
@@ -66,14 +75,16 @@ export TELEGRAM_API_BASE='https://api.telegram.org'
 Check configuration without sending:
 
 ```bash
-python3 scripts/send_telegram.py --check-config
+python3 ~/.codex/skills/agent-telegram-notifier/scripts/send_telegram.py --check-config
 ```
 
 Send a test message:
 
 ```bash
-python3 scripts/send_telegram.py "Telegram notifier test from Codex."
+python3 ~/.codex/skills/agent-telegram-notifier/scripts/send_telegram.py "Telegram notifier test from Codex."
 ```
+
+From a local checkout, use `python3 scripts/send_telegram.py ...` instead.
 
 ## Usage
 
