@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Telegram Notifier"
+  short_description: "Send concise Telegram bot notifications"
+  default_prompt: "Use $agent-telegram-notifier to send me a concise Telegram notification when the task is done."
